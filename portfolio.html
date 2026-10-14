@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portfolio of Asingwire Faith, an aspiring data scientist and interior designer based in Uganda.">
+
+    <title>Asingwire Faith | Portfolio</title>
+
+    <style>
+        :root {
+            --maroon: #800020;
+            --dark-maroon: #4b0015;
+            --black: #171717;
+            --white: #ffffff;
+            --light: #f7f5f5;
+            --grey: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: var(--black);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #e5a2b3;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: #e5a2b3;
+        }
+
+        /* HOME */
+
+        .hero {
+            background: linear-gradient(
+                120deg,
+                var(--black) 45%,
+                var(--dark-maroon)
+            );
+            color: var(--white);
+            padding: 120px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            color: #e5a2b3;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.15;
+            margin: 22px 0;
+        }
+
+        .hero h1 span {
+            color: #e5a2b3;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #eeeeee;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--maroon);
+            color: var(--white);
+            padding: 13px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #a52a49;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            background: transparent;
+            border: 1px solid var(--white);
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 85px;
+        }
+
+        .section-title {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: var(--maroon);
+        }
+
+        .section-intro {
+            color: var(--grey);
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .info-box {
+            background: var(--light);
+            border-left: 5px solid var(--maroon);
+            padding: 25px;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+        }
+
+        /* EDUCATION */
+
+        .education {
+            background: var(--light);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .education-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 7px;
+            border-bottom: 4px solid var(--maroon);
+        }
+
+        .education-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: var(--grey);
+        }
+
+        .year {
+            display: inline-block;
+            color: var(--maroon);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* INTERESTS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            padding: 28px;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--maroon);
+            transform: translateY(-5px);
+        }
+
+        .skill-number {
+            color: var(--maroon);
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .skill-card h3 {
+            margin: 12px 0;
+        }
+
+        .skill-card p {
+            color: var(--grey);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: var(--light);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--maroon);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f2e5e9;
+            color: var(--dark-maroon);
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--grey);
+            margin-bottom: 12px;
+        }
+
+        .project-note {
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        /* INTERIOR DESIGN */
+
+        .design-banner {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .design-banner h3 {
+            color: #e5a2b3;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .design-banner p {
+            color: #eeeeee;
+            margin-bottom: 15px;
+        }
+
+        .design-list {
+            padding-left: 22px;
+        }
+
+        .design-list li {
+            margin-bottom: 8px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-details {
+            margin: 30px 0;
+        }
+
+        .contact-details p {
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-details a {
+            color: var(--maroon);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #e5a2b3;
+        }
+
+        /* MOBILE DEVICES */
+
+        @media (max-width: 750px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .about-grid,
+            .education-grid,
+            .skills-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">AF<span>.</span></a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#interests">Interests</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    Creativity meets technology
+                </p>
+
+                <h1>
+                    Hello, I'm<br>
+                    Asingwire <span>Faith.</span>
+                </h1>
+
+                <p>
+                    An aspiring data scientist and interior designer
+                    passionate about creativity, technology,
+                    data, and continuous learning.
+                </p>
+
+                <a href="#projects" class="button">
+                    Explore My Work
+                </a>
+
+                <a href="#contact" class="button button-outline">
+                    Contact Me
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+
+    <section id="about">
+        <div class="container">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p class="section-intro">
+                Get to know me, my educational background,
+                and my professional interests.
+            </p>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        My name is Asingwire Faith. I am an aspiring
+                        data scientist and interior designer with an
+                        interest in combining creativity, analytical
+                        thinking, and technology.
+                    </p>
+
+                    <p>
+                        I studied interior design at Atfield Institute
+                        in 2026. This experience helped develop my
+                        interest in creative concepts, interior spaces,
+                        and thoughtful design.
+                    </p>
+
+                    <p>
+                        I am currently studying Data Science and
+                        Analytics at Uganda Christian University
+                        in Mukono, Uganda. My studies include
+                        Python programming and data analysis.
+                    </p>
+
+                    <p>
+                        I am building my knowledge step by step
+                        through learning, practising, and exploring
+                        projects. My goal is to continue growing
+                        academically and professionally while
+                        combining creativity with technology.
+                    </p>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>At a Glance</h3>
+
+                    <p>
+                        <strong>Name:</strong> Asingwire Faith
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong> Uganda
+                    </p>
+
+                    <p>
+                        <strong>Interests:</strong> Interior Design,
+                        Data Science, Programming
+                    </p>
+
+                    <p>
+                        <strong>Current Focus:</strong>
+                        Python Programming and Data Analysis
+                    </p>
+
+                    <p>
+                        <strong>Career Aspiration:</strong>
+                        Data Scientist and Interior Designer
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section class="education" id="education">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Education</span>
+            </h2>
+
+            <p class="section-intro">
+                My educational journey and the foundation
+                of my developing knowledge.
+            </p>
+
+            <div class="education-grid">
+
+                <div class="education-card">
+
+                    <span class="year">2026</span>
+
+                    <h3>Interior Design</h3>
+
+                    <p>
+                        Atfield Institute
+                    </p>
+
+                    <p>
+                        Studied interior design, developing
+                        a foundation in creative thinking
+                        and interior spaces.
+                    </p>
+
+                </div>
+
+                <div class="education-card">
+
+                    <span class="year">Current Studies</span>
+
+                    <h3>Data Science and Analytics</h3>
+
+                    <p>
+                        Uganda Christian University,
+                        Mukono, Uganda.
+                    </p>
+
+                    <p>
+                        Exploring Python programming,
+                        data analysis, and foundational
+                        data science concepts.
+                    </p>
+
+                </div>
+
+                <div class="education-card">
+
+                    <h3>Nabisunsa Girls School</h3>
+
+                    <p>
+                        Secondary education.
+                    </p>
+
+                </div>
+
+                <div class="education-card">
+
+                    <h3>King's College Budo</h3>
+
+                    <p>
+                        Secondary education.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AREAS OF INTEREST -->
+
+    <section id="interests">
+        <div class="container">
+
+            <h2 class="section-title">
+                My Areas of <span>Interest</span>
+            </h2>
+
+            <p class="section-intro">
+                The fields I am exploring as I develop
+                my academic and professional abilities.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <span class="skill-number">01 / DESIGN</span>
+
+                    <h3>Interior Design</h3>
+
+                    <p>
+                        Exploring interior spaces, aesthetics,
+                        creative concepts, colour combinations,
+                        and the relationship between functionality
+                        and visual appeal.
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <span class="skill-number">02 / DATA</span>
+
+                    <h3>Data Science</h3>
+
+                    <p>
+                        Learning how to organise, explore,
+                        and analyse data, interpret information,
+                        and use evidence to solve problems.
+                    </p>
+
+                </div>
+
+                <div class="skill-card">
+
+                    <span class="skill-number">03 / TECHNOLOGY</span>
+
+                    <h3>Python Programming</h3>
+
+                    <p>
+                        Developing programming foundations
+                        through Python exercises, functions,
+                        problem-solving, and small learning projects.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section class="projects" id="projects">
+        <div class="container">
+
+            <h2 class="section-title">
+                My Learning <span>Projects</span>
+            </h2>
+
+            <p class="section-intro">
+                A selection of learning projects that
+                represent my journey into programming
+                and data analysis.
+            </p>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+
+                    <span class="project-tag">
+                        Python Programming
+                    </span>
+
+                    <h3>CityLink Mini-Bank</h3>
+
+                    <p>
+                        A Python learning project exploring
+                        basic banking operations, including
+                        opening accounts, depositing money,
+                        withdrawing money, and displaying
+                        account benefits.
+                    </p>
+
+                    <p class="project-note">
+                        An educational programming project.
+                    </p>
+
+                </div>
+
+                <div class="project-card">
+
+                    <span class="project-tag">
+                        Python and Data
+                    </span>
+
+                    <h3>Fuel Sales Report</h3>
+
+                    <p>
+                        A learning project focused on reading
+                        fuel sales records from a file,
+                        working with sales information,
+                        and generating a basic report.
+                    </p>
+
+                    <p class="project-note">
+                        An educational project in development.
+                    </p>
+
+                </div>
+
+                <div class="project-card">
+
+                    <span class="project-tag">
+                        Interior Design
+                    </span>
+
+                    <h3>Interior Design Portfolio</h3>
+
+                    <p>
+                        A space for presenting interior design
+                        concepts, room layouts, design exercises,
+                        and completed work.
+                    </p>
+
+                    <p class="project-note">
+                        Interior design images can be added
+                        as you build your portfolio.
+                    </p>
+
+                </div>
+
+                <div class="project-card">
+
+                    <span class="project-tag">
+                        Data Analysis
+                    </span>
+
+                    <h3>Data Analysis Learning</h3>
+
+                    <p>
+                        Exploring data, practising Python,
+                        and developing an understanding
+                        of how information can be organised,
+                        examined, and interpreted.
+                    </p>
+
+                    <p class="project-note">
+                        An ongoing area of study.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERIOR DESIGN -->
+
+    <section id="design">
+        <div class="container">
+
+            <h2 class="section-title">
+                My Creative <span>Side</span>
+            </h2>
+
+            <p class="section-intro">
+                Interior design is an important part
+                of my creative journey.
+            </p>
+
+            <div class="design-banner">
+
+                <h3>Interior Design and Creativity</h3>
+
+                <p>
+                    I am interested in creating spaces that
+                    balance visual appeal, comfort, and
+                    functionality. My interior design studies
+                    have strengthened my appreciation for
+                    creative thinking and thoughtful design.
+                </p>
+
+                <p>
+                    This section will grow into a visual
+                    gallery as I add my own designs and
+                    project images.
+                </p>
+
+                <ul class="design-list">
+                    <li>Interior design concepts</li>
+                    <li>Room layouts and space planning</li>
+                    <li>Colour combinations and aesthetics</li>
+                    <li>Design inspiration and creative projects</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+        <div class="container">
+
+            <div class="contact-content">
+
+                <h2 class="section-title">
+                    Let's <span>Connect</span>
+                </h2>
+
+                <p class="section-intro">
+                    I welcome opportunities to learn,
+                    connect with others, and explore
+                    opportunities related to my interests.
+                </p>
+
+                <div class="contact-details">
+
+                    <p>
+                        <strong>Email:</strong>
+
+                        <a href="mailto:FaithKaremani2005@gmail.com">
+                            FaithKaremani2005@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Phone:</strong>
+
+                        <a href="tel:+256758504970">
+                            +256 758 504970
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong> Uganda
+                    </p>
+
+                </div>
+
+                <a
+                    href="mailto:FaithKaremani2005@gmail.com"
+                    class="button"
+                >
+                    Send Me an Email
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            &copy; 2026 Asingwire Faith.
+            <span>Creativity. Learning. Growth.</span>
+        </p>
+    </footer>
+
+</body>
+</html>
